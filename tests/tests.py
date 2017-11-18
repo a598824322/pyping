@@ -18,7 +18,7 @@
 import socket
 import unittest
 
-from pyping.pyping import Ping, is_valid_ip4_address, to_ip
+from pyping import Ping, is_valid_ip4_address, to_ip
 
 
 class PingTest(Ping):
@@ -65,7 +65,7 @@ class TestPythonPing(unittest.TestCase):
 
     def testDestAddr1(self):
         self.assertTrue(is_valid_ip4_address(to_ip('www.wikipedia.org')))
-        self.assertRaises(socket.gaierror, to_ip, ('www.doesntexist.tld'))
+        self.assertRaises(socket.gaierror, to_ip, 'www.doesntexist.tld')
 
     def testDestAddr2(self):
         self.assertTrue(to_ip('10.10.10.1'))
